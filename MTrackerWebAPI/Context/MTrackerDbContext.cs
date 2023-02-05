@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MTrackerWebAPI.Context;
+using MTrackerWebAPI.Model;
 
 public class MTrackerDbContext : DbContext
 {
@@ -8,4 +8,5 @@ public class MTrackerDbContext : DbContext
 
     }
     public DbSet<Employee> Employee { get; set; }
+    public DbSet<Customer> Customer { get; set; }
 }

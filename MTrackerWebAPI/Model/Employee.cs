@@ -1,4 +1,4 @@
-﻿namespace MTrackerWebAPI.Context
+﻿namespace MTrackerWebAPI.Model
 {
 public class Employee
 {  
