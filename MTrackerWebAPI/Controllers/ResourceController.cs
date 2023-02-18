@@ -26,5 +26,17 @@ namespace MTrackerWebAPI.Controllers
         {
             return await _context.Resource.ToListAsync();
         }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Resource>> GetResourcebyID(int id)
+        {
+            var resource = await _context.Resource.FindAsync(id);
+
+            if (resource == null)
+            {
+                return NotFound();
+            }
+
+            return resource;
+        }
     }
 }
