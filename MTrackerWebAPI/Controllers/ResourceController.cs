@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MTrackerWebAPI.Migrations;
 using MTrackerWebAPI.Model;
-using Resource = MTrackerWebAPI.Migrations.Resource;
-//using Resource = MTrackerWebAPI.Migrations.Resource;
 
 namespace MTrackerWebAPI.Controllers
 {
@@ -17,20 +18,13 @@ namespace MTrackerWebAPI.Controllers
         {
             _context = Dbcontext;
         }
-        //[HttpGet]
-        //[Route("api/Resource/GetResource")]
-        //public async Task<ActionResult<IEnumerable<Resource>>> GetResource()
-        //{
-        //    return await _context.Resource.ToListAsync();
-        //}
 
-        // GET: api/Employees
+        // GET: api/ResourcesTest
         [HttpGet]
-        [Route("api/Employee/GetEmployee")]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployee()
+        [Route("api/Resource/GetResource")]
+        public async Task<ActionResult<IEnumerable<Resource>>> GetResource()
         {
-            return await _context.Employee.ToListAsync();
+            return await _context.Resource.ToListAsync();
         }
-
     }
 }
