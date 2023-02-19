@@ -38,5 +38,12 @@ namespace MTrackerWebAPI.Controllers
 
             return resource;
         }
+        [HttpPost]
+        public async Task<ActionResult<Resource>> PostResource(Resource resource)
+        {
+            _context.Resource.Add(resource);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction("Get Resource", new { id=resource.ResourceID},resource);
+        }
     }
 }
