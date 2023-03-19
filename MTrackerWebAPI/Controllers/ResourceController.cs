@@ -12,6 +12,7 @@ namespace MTrackerWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController, Authorize]
+   // Authorize
     public class ResourceController : ControllerBase
     {
         private readonly MTrackerDbContext _context;

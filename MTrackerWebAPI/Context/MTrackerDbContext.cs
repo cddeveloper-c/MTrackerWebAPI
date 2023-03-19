@@ -10,4 +10,6 @@ public class MTrackerDbContext : DbContext
     public DbSet<Employee> Employee { get; set; }
     public DbSet<Customer> Customer { get; set; }
     public DbSet<Resource> Resource { get; set; }
+    public DbSet<Projects> Projects { get; set; }
+
 }
