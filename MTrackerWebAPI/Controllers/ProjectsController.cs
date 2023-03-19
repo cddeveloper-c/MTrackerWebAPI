@@ -34,7 +34,26 @@ namespace MTrackerWebAPI.Controllers
 
             return projects;
         }
+        [HttpPost]
+        public async Task<ActionResult<Projects>> PostProjects(Projects projects)
+        {
+            _context.Projects.Add(projects);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction("Get Projects", new { id = projects.ProjectID }, projects);
+        }
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProjects(int id)
+        {
+            var projects = await _context.Projects.FindAsync(id);
+            if(projects == null)
+            {
+                return NotFound();
+            }
+            _context.Projects.Remove(projects);
+            await _context.SaveChangesAsync();
 
+            return NoContent();
+        }
     }
 }
