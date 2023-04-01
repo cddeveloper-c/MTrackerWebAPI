@@ -18,7 +18,7 @@ namespace MTrackerWebAPI.Controllers
         //[HttpGet]
         //public async Task<ActionResult<ProjectTaskDetailsViewModel>> GetProjectTaskDetails(int id)
         //{
-        //    var projecttask = await _context.ProjectTasks.FindAsync(id);
+        //   var projecttask = await _context.ProjectTasks.FindAsync(id);
 
         //}
     }
