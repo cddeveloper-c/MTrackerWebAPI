@@ -8,6 +8,7 @@ namespace MTrackerWebAPI.Model
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+       
         public int ResourceID { get; set; }
         public string? ResourceName { get; set; }
         public string? Destination { get; set; }

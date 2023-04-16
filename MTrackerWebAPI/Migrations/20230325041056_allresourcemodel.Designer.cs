@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MTrackerWebAPI.Migrations
 {
     [DbContext(typeof(MTrackerDbContext))]
-    partial class MTrackerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230325041056_allresourcemodel")]
+    partial class allresourcemodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,53 +69,6 @@ namespace MTrackerWebAPI.Migrations
                     b.HasKey("EmployeeID");
 
                     b.ToTable("Employee");
-                });
-
-            modelBuilder.Entity("MTrackerWebAPI.Model.ManagerComments", b =>
-                {
-                    b.Property<int>("ManagerCommentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ManagerCommentID"));
-
-                    b.Property<string>("Comments")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ProjectTaskID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ManagerCommentID");
-
-                    b.ToTable("ManagerComments");
-                });
-
-            modelBuilder.Entity("MTrackerWebAPI.Model.ProjectTasks", b =>
-                {
-                    b.Property<int>("ProjectTaskID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectTaskID"));
-
-                    b.Property<int?>("AssignedTo")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TaskCompletion")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("TaskEndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("TaskStartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserStoryID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProjectTaskID");
-
-                    b.ToTable("ProjectTasks");
                 });
 
             modelBuilder.Entity("MTrackerWebAPI.Model.Projects", b =>
@@ -169,25 +125,6 @@ namespace MTrackerWebAPI.Migrations
                     b.HasKey("ResourceID");
 
                     b.ToTable("Resource");
-                });
-
-            modelBuilder.Entity("MTrackerWebAPI.Model.UserStories", b =>
-                {
-                    b.Property<int>("UserStoryID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserStoryID"));
-
-                    b.Property<int>("ProjectID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Story")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserStoryID");
-
-                    b.ToTable("UserStories");
                 });
 #pragma warning restore 612, 618
         }
