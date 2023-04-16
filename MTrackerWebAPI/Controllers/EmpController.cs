@@ -36,6 +36,22 @@ namespace MTrackerWebAPI.Controllers
             return listEmp.FirstOrDefault(X => X.EmployeeID == id);
         }
 
+        //[HttpPost]
+        //public async Task<ActionResult<IEnumerable<output>>> Getoutput(Input input)
+        //{
+        //    string StoredProc = "exec CreateAppointment " +
+        //            "@ClinicID = " + input.ClinicId + "," +
+        //            "@AppointmentDate = '" + input.AppointmentDate + "'," +
+        //            "@FirstName= '" + input.FirstName + "'," +
+        //            "@LastName= '" + input.LastName + "'," +
+        //            "@PatientID= " + input.PatientId + "," +
+        //            "@AppointmentStartTime= '" + input.AppointmentStartTime + "'," +
+        //            "@AppointmentEndTime= '" + input.AppointmentEndTime + "'";
+
+        //    //return await _context.output.ToListAsync();
+        //    return await _context.output.FromSqlRaw(StoredProc).ToListAsync();
+        //}
+
     }
     
 }
