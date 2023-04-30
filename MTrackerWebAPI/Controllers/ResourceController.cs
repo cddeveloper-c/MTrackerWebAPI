@@ -22,9 +22,11 @@ namespace MTrackerWebAPI.Controllers
     public class ResourceController : ControllerBase
     {
         private readonly MTrackerDbContext _context;
-        public ResourceController(MTrackerDbContext Dbcontext)
+        public readonly IConfiguration _configuration;
+        public ResourceController(MTrackerDbContext Dbcontext, IConfiguration configuration)
         {
             _context = Dbcontext;
+            _configuration = configuration;
         }
 
         // GET: api/ResourcesTest
@@ -73,7 +75,8 @@ namespace MTrackerWebAPI.Controllers
         //[HttpPost]
         //public async Task<ActionResult<int>> Resource(Resource resource)
         //{
-        //    using var connection = new SqlConnection("Persist Security Info=False;User ID=sa;Password=7101;Initial Catalog=MTrackerAPI;Data Source=LAPTOP-22L160U3\\SQLEXPRESS;TrustServerCertificate=True");
+        //     using var connection = new SqlConnection("Persist Security Info=False;User ID=sa;Password=7101;Initial Catalog=MTrackerAPI;Data Source=LAPTOP-22L160U3\\SQLEXPRESS;TrustServerCertificate=True");
+            
         //    var query = "AddResource";
         //    var p = new DynamicParameters();
         //    p.Add("ResourceName", resource.ResourceName);
