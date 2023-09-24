@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Resources>
+{
+    @ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Resource Data Fetch</h1>
+    <div class="container-fluid">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ResourceID</th>
+                    <th scope="col">ResourceName</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">ManagerID</th>
+                    <th scope="col">ContactNo</th>
+                    <th scope="col">EmailID</th>
+                    <th scope="col">SkillSets</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model)
+                {
+                    <tr>
+                        <td>@r.resourceID</td>
+                        <td>@r.resourceName</td>
+                        <td> @r.destination</td>
+                        <td> @r.managerID</td>
+                        <td>@r.contactNo</td>
+                        <td>@r.emailID</td>
+                        <td>@r.skillSets</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

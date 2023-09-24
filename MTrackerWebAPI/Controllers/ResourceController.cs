@@ -17,7 +17,7 @@ using Microsoft.AspNetCore.Connections;
 namespace MTrackerWebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController, Authorize]
+    [ApiController]
    // Authorize
     public class ResourceController : ControllerBase
     {

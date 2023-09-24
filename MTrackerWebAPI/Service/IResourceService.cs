@@ -1,6 +1,6 @@
 ﻿namespace MTrackerWebAPI.Service
 {
-    public interface IResource
+    public interface IResourceService
     {
     }
 }
