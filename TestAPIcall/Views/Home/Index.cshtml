@@ -1,7 +1,11 @@
 ﻿@model IEnumerable<Resources>
-{
-    @ViewData["Title"] = "Home Page";
-}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- The form -->
+<form method="post" asp-controller="Home" asp-action="Index">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit" style="background-color : lightskyblue"><i class="fa fa-search"></i></button>
 
 <div class="text-center">
     <h1 class="display-4">Resource Data Fetch</h1>
@@ -35,3 +39,4 @@
         </table>
     </div>
 </div>
+</form>

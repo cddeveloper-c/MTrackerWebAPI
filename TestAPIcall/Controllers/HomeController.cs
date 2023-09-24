@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Net;
+using System.Resources;
 using TestAPIcall.Models;
 
 namespace TestAPIcall.Controllers
@@ -14,11 +16,8 @@ namespace TestAPIcall.Controllers
             _logger = logger;
         }
 
-        //public IActionResult Index()
-        //{
-            
-        //    return View();
-        //}
+      
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             List<Resources> ResourcesList = new List<Resources>();
@@ -32,6 +31,30 @@ namespace TestAPIcall.Controllers
             }
             return View(ResourcesList);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(string id)
+        {
+           
+              id = "1";
+            //string link = "https://localhost:7093/api/Resource/";
+            //string url = link + id;
+
+            
+            List<Resources> ResourcesList = new List<Resources>();
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync($"https://localhost:7093/api/Resource/1"))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    ResourcesList = JsonConvert.DeserializeObject<List<Resources>>(apiResponse);
+                }
+            }
+            return View(ResourcesList);
+        }
+
+        
+
 
         public IActionResult Privacy()
         {
