@@ -33,18 +33,18 @@ namespace TestAPIcall.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(string id)
+        public async Task<IActionResult> Index(string ResourceID)
         {
            
-              id = "1";
+              //id = "1";
             //string link = "https://localhost:7093/api/Resource/";
-            //string url = link + id;
+            //string url = link + ResourceID;
 
             
             List<Resources> ResourcesList = new List<Resources>();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://localhost:7093/api/Resource/1"))
+                using (var response = await httpClient.GetAsync($"https://localhost:7093/api/Resource/"+ ResourceID))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     ResourcesList = JsonConvert.DeserializeObject<List<Resources>>(apiResponse);

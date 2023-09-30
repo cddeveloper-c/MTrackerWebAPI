@@ -1,5 +1,6 @@
 ﻿namespace TestAPIcall.Models
 {
+    
     public class Resources
     {
 
