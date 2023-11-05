@@ -1,0 +1,24 @@
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TestAPIcall.Models
+{
+    public class ImageModel
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Column(TypeName ="nvarchar(50)")]
+        public string? Title { get; set; }
+
+
+        [Column(TypeName = "nvarchar(100)")]
+        [DisplayName("Image Name")]
+        public string? Name { get; set; }
+
+        [NotMapped]
+        [DisplayName("Upload File")]
+        public IFormFile? ImageFile { get; set; }
+    }
+}

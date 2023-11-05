@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using TestAPIcall.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ApplicatonDbContext>(item => item.UseSqlServer(builder.Configuration.GetConnectionString("myconn")));
 
 var app = builder.Build();
 

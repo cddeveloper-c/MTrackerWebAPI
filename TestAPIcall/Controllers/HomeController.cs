@@ -31,20 +31,13 @@ namespace TestAPIcall.Controllers
             }
             return View(ResourcesList);
         }
-
         [HttpPost]
-        public async Task<IActionResult> Index(string ResourceID)
+        public async Task<IActionResult> Index(string ResourceName)
         {
-           
-              //id = "1";
-            //string link = "https://localhost:7093/api/Resource/";
-            //string url = link + ResourceID;
-
-            
             List<Resources> ResourcesList = new List<Resources>();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync($"https://localhost:7093/api/Resource/"+ ResourceID))
+                using (var response = await httpClient.GetAsync($"https://localhost:7093/api/Resource/"+ ResourceName))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     ResourcesList = JsonConvert.DeserializeObject<List<Resources>>(apiResponse);
@@ -52,11 +45,11 @@ namespace TestAPIcall.Controllers
             }
             return View(ResourcesList);
         }
-
-        
-
-
         public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult ImageUpload()
         {
             return View();
         }
