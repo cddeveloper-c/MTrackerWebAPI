@@ -62,8 +62,8 @@ namespace TestAPIcall.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ImageId,Title,ImageFile")] ImageModel imageModel)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 //Save image to wwwroot/image
                 string wwwRootPath = _hostEnvironment.WebRootPath;
                 string fileName = Path.GetFileNameWithoutExtension(imageModel.ImageFile.FileName);
@@ -78,8 +78,8 @@ namespace TestAPIcall.Controllers
                 _context.Add(imageModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            return View(imageModel);
+          //  }
+            //return View(imageModel);
         }
 
         // GET: Image/Edit/5
