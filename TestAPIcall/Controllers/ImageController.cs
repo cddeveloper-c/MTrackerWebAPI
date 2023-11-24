@@ -85,17 +85,19 @@ namespace TestAPIcall.Controllers
         // GET: Image/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.ImageModels == null)
-            {
-                return NotFound();
-            }
+            //if (id == null || _context.ImageModels == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var imageModel = await _context.ImageModels.FindAsync(id);
-            if (imageModel == null)
-            {
-                return NotFound();
-            }
-            return View(imageModel);
+            //var imageModel = await _context.ImageModels.FindAsync(id);
+            //if (imageModel == null)
+            //{
+            //    return NotFound();
+            //}
+            //return View(imageModel);
+
+            return View(_context.ImageModels.Where(a => a.ImageId == id).FirstOrDefault());
         }
 
         // POST: Image/Edit/5
@@ -105,32 +107,37 @@ namespace TestAPIcall.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ImageId,Title,ImageName")] ImageModel imageModel)
         {
-            if (id != imageModel.ImageId)
-            {
-                return NotFound();
-            }
+            //if (id != imageModel.ImageId)
+            //{
+            //    return NotFound();
+            //}
+            //else
+            //{
+            //    try
+            //    {
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(imageModel);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ImageModelExists(imageModel.ImageId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(imageModel);
+            //        _context.Update(imageModel);
+            //        await _context.SaveChangesAsync();
+            //    }
+            //    catch (DbUpdateConcurrencyException)
+            //    {
+            //        if (!ImageModelExists(imageModel.ImageId))
+            //        {
+            //            return NotFound();
+            //        }
+            //        else
+            //        {
+            //            throw;
+            //        }
+            //    }
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //  return View(imageModel);
+
+            _context.Update(imageModel);
+            _context.Entry(imageModel).Property(x => x.ImageName).IsModified = false;
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Image/Delete/5

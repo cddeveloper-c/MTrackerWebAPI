@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TestAPIcall.Data;
 
@@ -10,9 +11,11 @@ using TestAPIcall.Data;
 namespace TestAPIcall.Migrations
 {
     [DbContext(typeof(ApplicatonDbContext))]
-    partial class ApplicatonDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231112042933_addtblImageTbl")]
+    partial class addtblImageTbl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
